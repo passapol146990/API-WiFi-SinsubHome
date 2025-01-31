@@ -22,9 +22,9 @@ def randomNumber(main,length):
 
 def run():
     while(getRun()=='1'):
-        print(f"count Password : ${len(dictionarys)}",end='\r')
+        print(f"count username Faild : ${len(dictionarys)}",end='\r')
         if getRun()=='0': return
-        username = randomNumber("191102",7)
+        username = randomNumber("1",6)
         # print(username)
         password = username[0:3]
         dictionarys.append(username)
