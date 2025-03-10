@@ -13,7 +13,7 @@ def setRun(x):
     df.writelines(str(x))
     df.close()
 def result(x):
-    df = open('password.txt', 'w',encoding='utf-8')
+    df = open('password.txt', 'a',encoding='utf-8')
     df.writelines(str(x))
     df.close()
 def BrutforcePassword(start,end,length):
@@ -43,7 +43,7 @@ def BrutforcePassword(start,end,length):
                 setRun("0")
         except:
             pass
-# setRun("1")
+setRun("1")
 title = ""
 print(title)
 username = input("username : ")
