@@ -1,6 +1,6 @@
 import requests, threading, time, random
 dictionarys = []
-username = '15103'
+username = ''
 password = ''
 isRun = True
 def getRun():

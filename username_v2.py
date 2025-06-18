@@ -42,5 +42,5 @@ def BrutforcePassword(username_main,length):
                 result(f'usename : {username}\n')
         except:pass
 setRun("1")
-BrutforcePassword("16",6)
+BrutforcePassword("",6)
 

@@ -5,7 +5,7 @@ header = {
     "content-type":"application/x-www-form-urlencoded",
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36 Edg/95.0.1020.38"
 }
-username = 161010
+username = 115100
 def getRun():
     df = open('password_v2_status.txt', 'r', encoding='utf-8')
     return df.read()
@@ -14,7 +14,7 @@ def setRun(x):
     df.writelines(str(x))
     df.close()
 def result(x):
-    df = open('password_v2_result.txt', 'w',encoding='utf-8')
+    df = open('password_v2_result.txt', 'w',encoding='utf-8') 
     df.writelines(str(x))
     df.close()
 def BrutforcePassword(start,end,length):

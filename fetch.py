@@ -1,6 +1,6 @@
 import requests as req
-username = 151023
-password = 3314
+username = 115100
+password = 2624
 
 url = "http://172.16.0.1/portal/user-authen.php"
 header = {
